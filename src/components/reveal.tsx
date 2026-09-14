@@ -1,0 +1,55 @@
+"use client";
+
+import { useEffect, useRef, type ReactNode } from "react";
+import { gsap, ScrollTrigger, registerGsap } from "@/lib/gsap";
+import { cn } from "@/lib/utils";
+
+export function Reveal({
+  children,
+  className,
+  y = 32,
+  delay = 0,
+  as: Tag = "div",
+}: {
+  children: ReactNode;
+  className?: string;
+  y?: number;
+  delay?: number;
+  as?: "div" | "li";
+}) {
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
+
+  useEffect(() => {
+    registerGsap();
+    const el = ref.current;
+    if (!el) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        el,
+        { y, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          delay,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.refresh());
+    };
+  }, [y, delay]);
+
+  return (
+    <Tag ref={ref} className={cn(className)}>
+      {children}
+    </Tag>
+  );
+}
