@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, registerGsap } from "@/lib/gsap";
+import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { MountainScene } from "./mountain-scene";
 import { profile } from "@/data/profile";
 import { ArrowDown } from "lucide-react";
@@ -11,6 +11,7 @@ export function HeroSection() {
 
   useEffect(() => {
     registerGsap();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       gsap.from(contentRef.current?.children ?? [], {
         y: 24,
