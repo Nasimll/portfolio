@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { MountainScene } from "./mountain-scene";
+import { KineticText } from "@/components/kinetic-text";
+import { MagneticButton } from "@/components/magnetic-button";
 import { profile } from "@/data/profile";
 import { ArrowDown } from "lucide-react";
 
@@ -13,13 +15,13 @@ export function HeroSection() {
     registerGsap();
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      gsap.from(contentRef.current?.children ?? [], {
+      gsap.from(contentRef.current?.querySelectorAll("[data-hero-fade]") ?? [], {
         y: 24,
         opacity: 0,
         duration: 1,
         stagger: 0.12,
         ease: "power3.out",
-        delay: 0.3,
+        delay: 1,
       });
     }, contentRef);
     return () => ctx.revert();
@@ -41,32 +43,43 @@ export function HeroSection() {
         ref={contentRef}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        <p className="font-display text-xs tracking-[0.35em] text-white/70 uppercase sm:text-sm">
+        <p
+          data-hero-fade
+          className="font-display text-xs tracking-[0.35em] text-white/70 uppercase sm:text-sm"
+        >
           {profile.location}
         </p>
-        <h1 className="font-display mt-4 max-w-4xl text-4xl font-semibold text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)] sm:text-6xl md:text-7xl">
-          {profile.name}
-        </h1>
-        <p className="mt-4 max-w-xl text-base text-white/85 drop-shadow-sm sm:text-lg">
+        <KineticText
+          as="h1"
+          text={profile.name}
+          trigger="mount"
+          delay={0.2}
+          stagger={0.1}
+          className="font-display mt-2 w-full text-[clamp(2.75rem,11vw,8.5rem)] leading-[0.95] font-bold tracking-tight text-white drop-shadow-[0_2px_30px_rgba(0,0,0,0.5)]"
+        />
+        <p
+          data-hero-fade
+          className="mt-6 max-w-xl text-base text-white/85 drop-shadow-sm sm:text-lg"
+        >
           {profile.role}
         </p>
-        <p className="mt-2 max-w-md text-sm text-white/60 sm:text-base">
+        <p data-hero-fade className="mt-2 max-w-md text-sm text-white/60 sm:text-base">
           {profile.tagline}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
+        <div data-hero-fade className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <MagneticButton
             href="#projects"
-            className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:scale-[1.03] hover:bg-white/90"
+            className="inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-white/90"
           >
             View my work
-          </a>
-          <a
+          </MagneticButton>
+          <MagneticButton
             href="#contact"
-            className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white transition hover:border-white/60 hover:bg-white/10"
+            className="inline-block rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/60 hover:bg-white/10"
           >
             Get in touch
-          </a>
+          </MagneticButton>
         </div>
       </div>
 
