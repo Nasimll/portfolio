@@ -1,43 +1,94 @@
-// TODO: Replace every placeholder value below with real content from the resume.
-// This is the single source of truth for the site's copy — sections read from here,
-// so filling this in is enough to update the whole site.
+// Single source of truth for the site's copy — every section reads from here.
 
 export const profile = {
-  name: "Your Name",
-  role: "AI Engineer & Product Builder",
+  name: "Nasimjon Mullojonov",
+  role: "Product Builder & Software Engineer",
   tagline:
-    "I design and ship AI-powered products — from prototype to production.",
-  location: "Tajikistan", // TODO: city, country
-  email: "you@example.com", // TODO
-  resumeUrl: "/resume.pdf", // TODO: drop a resume PDF into /public
+    "I take products from concept to daily operations — designing, building, and shipping full-stack systems end to end.",
+  location: "Warsaw, Poland",
+  email: "nasimjonmullojonov@gmail.com",
+  phone: "+48 575 416 431",
+  resumeUrl: "/resume.pdf", // TODO: drop a resume PDF into /public to enable the download link
   social: {
-    github: "https://github.com/your-handle", // TODO
-    linkedin: "https://linkedin.com/in/your-handle", // TODO
-    twitter: "", // TODO (optional)
+    github: "https://github.com/Nasimll",
+    linkedin: "https://linkedin.com/in/nasimmulladzhanov",
+    twitter: "",
   },
 };
 
 export const about = {
   heading: "About me",
   paragraphs: [
-    // TODO: 2-3 short paragraphs about your background, what you build, and what drives you.
-    "I'm a software engineer focused on AI engineering and product building — turning ideas into working MVPs and shipping technical products end to end.",
-    "TODO: add a paragraph about your background, studies, and how you got into AI/software engineering.",
+    "I'm a Computer Engineering student and product-minded builder with hands-on experience owning a product from concept to daily operations at a recruitment-tech company. I personally designed and built the company's internal management system end-to-end — React, JavaScript, Google Apps Script, Google Sheets — then used it to drive a lead-generation funnel that grew traffic and social presence by 30–40%.",
+    "I'm equally comfortable writing code and driving product strategy, bridging engineering, marketing, and operations, and leading cross-functional teams of up to 15 people to ship features and keep the product and brand experience consistent.",
   ],
 };
+
+export const stats = [
+  { value: 500, suffix: "+", label: "leads generated" },
+  { value: 40, suffix: "%", label: "traffic & social growth" },
+  { value: 15, suffix: "", label: "person team led" },
+  { value: 3, suffix: "", label: "languages spoken fluently" },
+];
 
 export type SkillGroup = {
   category: string;
   items: string[];
 };
 
-// TODO: replace with real skills from the resume, grouped however makes sense.
 export const skills: SkillGroup[] = [
-  { category: "Languages", items: ["TypeScript", "Python", "JavaScript"] },
-  { category: "AI / ML", items: ["LLM engineering", "RAG", "Agents", "PyTorch"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "PostgreSQL", "REST/GraphQL APIs"] },
-  { category: "Tools", items: ["Git", "Docker", "CI/CD"] },
+  {
+    category: "Product & Operations",
+    items: [
+      "Agile workflows",
+      "Roadmap prioritization",
+      "Cross-functional leadership",
+      "KPI analysis",
+      "Workflow automation",
+      "Documentation",
+    ],
+  },
+  {
+    category: "Technical",
+    items: [
+      "JavaScript",
+      "React",
+      "C#",
+      "SQL",
+      "Java",
+      "Python (basic)",
+      "HTML/CSS (advanced)",
+      "Google Apps Script",
+      "OOP",
+      "REST APIs",
+    ],
+  },
+  {
+    category: "Analytics & Marketing",
+    items: [
+      "Google Analytics",
+      "Google Ads",
+      "Meta Ads",
+      "SEO",
+      "Lead generation",
+      "Social media strategy",
+    ],
+  },
+  {
+    category: "Design & Content",
+    items: [
+      "Figma",
+      "Adobe Photoshop",
+      "Canva",
+      "CapCut",
+      "Branding & visual identity",
+      "Motion graphics",
+    ],
+  },
+  {
+    category: "Languages",
+    items: ["English (C1)", "Russian (C2)", "Tajik (Native)", "Polish (A1)"],
+  },
 ];
 
 export type ExperienceItem = {
@@ -48,16 +99,29 @@ export type ExperienceItem = {
   description: string[];
 };
 
-// TODO: replace with real work experience from the resume, most recent first.
 export const experience: ExperienceItem[] = [
   {
-    company: "Company Name",
-    role: "Job Title",
-    period: "2023 — Present",
-    location: "Remote",
+    company: "Sadykov Group Sp. z o.o.",
+    role: "Product Operations Manager",
+    period: "Jan 2025 — Jul 2026",
+    location: "Warsaw, Poland",
     description: [
-      "TODO: what you built, shipped, or improved.",
-      "TODO: a measurable outcome or impact.",
+      "Personally designed and built the company's internal recruitment management system from scratch — architecture, frontend, and backend — using React, JavaScript, JSON, and HTML/CSS, with Google Apps Script and Google Sheets as the backend.",
+      "Owned the product roadmap and daily operations for the platform, coordinating engineering, design, and marketing to ship features while keeping product and brand experience consistent.",
+      "Designed and launched a lead-generation funnel that drove approximately 400–500 leads and grew the company's traffic and social presence by 30–40%.",
+      "Led and grew a cross-functional team of up to 15 people, including recruiting new members and coordinating closely with engineers and designers.",
+      "Tracked SEO, engagement, and conversion KPIs via Google Analytics to guide product decisions, and ran paid acquisition through Google Ads and Meta Ads.",
+    ],
+  },
+  {
+    company: "WebD",
+    role: "Front-End Developer",
+    period: "2020 — 2021",
+    location: "Dushanbe, Tajikistan",
+    description: [
+      "Worked as a front-end developer during studies, building web pages with HTML/CSS and designing branding materials, web graphics, and marketing assets for client projects.",
+      "Collaborated with marketing and development teams to maintain consistent visual identity and improve user experience across web properties.",
+      "Completed the WebD Academy program in Frontend Development & Web Design alongside client project work.",
     ],
   },
 ];
@@ -68,12 +132,12 @@ export type EducationItem = {
   period: string;
 };
 
-// TODO: replace with real education from the resume.
 export const education: EducationItem[] = [
   {
-    school: "University Name",
-    degree: "Degree, Field of Study",
-    period: "20XX — 20XX",
+    school: "Vistula University, Warsaw, Poland",
+    degree:
+      "B.Eng., Computer Engineering — Focus: Algorithms & Data Structures, C#, SQL, Java, OOP, Software Engineering, Software Architecture",
+    period: "Oct 2023 — Present (Expected Jan 2027)",
   },
 ];
 
@@ -85,19 +149,28 @@ export type Project = {
   repo?: string;
 };
 
-// TODO: replace with real projects from the resume/portfolio.
 export const projects: Project[] = [
   {
-    title: "Project One",
-    description: "TODO: one or two sentences on what this project does and the problem it solves.",
-    tags: ["Next.js", "AI"],
+    title: "Recruitment Operations Platform",
+    description:
+      "A full web application for Sadykov Group Sp. z o.o. that organizes and streamlines daily recruitment operations and core workflows, from vacancy posting to lead tracking.",
+    tags: ["React", "JavaScript", "Google Apps Script", "Google Sheets"],
     href: "",
     repo: "",
   },
   {
-    title: "Project Two",
-    description: "TODO: one or two sentences on what this project does and the problem it solves.",
-    tags: ["TypeScript", "Product"],
+    title: "Marketplace System",
+    description:
+      "A peer-to-peer platform for exchanging goods and services, covering listing creation and matching logic. Built as a personal project to strengthen OOP fluency in Java.",
+    tags: ["Java", "OOP"],
+    href: "",
+    repo: "",
+  },
+  {
+    title: "Product Sort",
+    description:
+      "A terminal-based application for sorting and organizing products into inventory storage. Built as a personal project to strengthen C# and OOP fundamentals.",
+    tags: ["C#", "OOP"],
     href: "",
     repo: "",
   },

@@ -19,11 +19,18 @@ export function ContactSection() {
         </p>
         <a
           href={`mailto:${profile.email}`}
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition hover:opacity-90"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90"
         >
           <Mail className="h-4 w-4" />
           {profile.email}
         </a>
+        {profile.phone && (
+          <p className="mt-3 text-sm text-muted">
+            <a href={`tel:${profile.phone.replace(/\s+/g, "")}`} className="hover:text-foreground">
+              {profile.phone}
+            </a>
+          </p>
+        )}
         <div className="mt-8 flex justify-center gap-5 text-muted">
           {profile.social.github && (
             <a

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { gsap, ScrollTrigger, registerGsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 export function Reveal({
@@ -23,6 +23,10 @@ export function Reveal({
     registerGsap();
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) {
+      gsap.set(el, { y: 0, opacity: 1 });
+      return;
+    }
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,

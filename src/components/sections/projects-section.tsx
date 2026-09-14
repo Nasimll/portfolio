@@ -9,14 +9,16 @@ export function ProjectsSection() {
     <section id="projects" className="border-t border-border bg-surface">
       <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
         <SectionHeading eyebrow="Projects" title="Selected work" />
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <Reveal
               key={project.title}
               delay={i * 0.08}
-              className="group rounded-2xl border border-border p-6 transition hover:border-accent/50 hover:shadow-lg"
+              className="group rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl"
             >
-              <h3 className="font-display text-xl font-semibold">{project.title}</h3>
+              <h3 className="font-display text-xl font-semibold transition-colors group-hover:text-accent">
+                {project.title}
+              </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
                 {project.description}
               </p>
