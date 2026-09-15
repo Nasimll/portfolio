@@ -12,8 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Third-party skill assets installed by the ui-ux-pro-max skill, not app code.
+    // Third-party skill assets (ui-ux-pro-max, taste-skill) and design
+    // references, not app code.
     ".claude/**",
+    ".agents/**",
   ]),
 ]);
 

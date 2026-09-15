@@ -70,6 +70,40 @@ Re-run that (bump to `@latest`) to refresh it later. It's third-party
 generated content — excluded from ESLint (`eslint.config.mjs`) and not
 meant to be hand-edited.
 
+## Design taste skills
+
+`leonxlnx/taste-skill` is installed via `npx skills add
+https://github.com/Leonxlnx/taste-skill` — writes to `.agents/skills/*`
+with `.claude/skills/*` as symlinks (also third-party, excluded from
+ESLint the same way as `ui-ux-pro-max`). Most relevant here:
+`design-taste-frontend` (anti-generic-AI-UI, the main one), `gpt-taste`
+(GSAP-heavy motion), `high-end-visual-design`, `redesign-existing-projects`
+(explicitly for upgrading an existing site — use this one when iterating
+on the current design rather than starting over), plus style-specific
+ones (`minimalist-ui`, `industrial-brutalist-ui`, `brandkit`, …). Re-run
+the same `npx skills add` command to update.
+
+`.claude/references/awesome-design-md/` is a reference-only clone of
+`VoltAgent/awesome-design-md` (not a skill, no SKILL.md) — one
+`DESIGN.md` per real brand (Nike, Stripe, Apple, Notion, …) documenting
+their actual palette/type/layout/motion system. Useful to read a couple
+of adjacent ones for inspiration before a design pass; nothing here reads
+them automatically.
+
+## Design direction (in flux)
+
+The user rejected the original SVG-illustrated mountain hero as "raw" /
+too templated — see 3 alternative directions explored as a live HTML/CSS
+mockup (GSAP, real scroll motion, not Figma) before touching the actual
+site: cinematic ("Alpenglow", photographic gradient + serif), maximalist
+("Kinetic Field", huge condensed type + marquee + cursor glow), and
+editorial ("Alpine Editorial", magazine masthead + restrained motion).
+The user also wants to swap the hand-drawn SVG mountains for an actual
+photo (dusk/dawn mountain shot with a standing figure) — no such image
+file has made it into this environment yet (pasted inline, not
+attached), so the current hero is still the SVG version pending both a
+direction decision and a real image file.
+
 ## Conventions
 
 - Path alias `@/*` → `src/*`.
@@ -82,7 +116,8 @@ meant to be hand-edited.
 
 ## Known gaps / next steps
 
-- `src/data/profile.ts` is placeholder content — needs the real resume.
+- `src/data/profile.ts` is filled in from the real resume already.
 - No `public/resume.pdf` yet — `profile.resumeUrl` points at a file that
   doesn't exist until one is added.
-- Social links (`profile.social`) are placeholders.
+- No real headshot/photo yet — About section uses an initials avatar.
+- See "Design direction (in flux)" above — the hero is mid-redesign.
