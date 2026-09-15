@@ -90,6 +90,58 @@ their actual palette/type/layout/motion system. Useful to read a couple
 of adjacent ones for inspiration before a design pass; nothing here reads
 them automatically.
 
+`pbakaus/impeccable` is installed at `.claude/skills/impeccable/` (copied
+directly from the repo's own `.claude/skills/impeccable/` distribution —
+its own `npx impeccable install` CLI 403s in this sandbox trying to fetch
+a signed bundle, so don't re-run that here). Commands: `critique`,
+`audit`, `polish`, `bolder`, `quieter`, `animate`, etc. — see its
+`SKILL.md` for the full table. Two things matter every time it's used:
+
+- **`reference/craft-floor.md` is mandatory reading before any UI edit**
+  (not just when using this skill explicitly) — it has hard bans, not
+  preferences: no eyebrow/kicker label above a heading ("this one is a
+  ban, not a default: no brief earns it back"), display type ≤ 6rem,
+  tracking floor -0.04em, no bounce/elastic easing, no gradient text, no
+  Unicode glyphs standing in for icons, theme browser surfaces (selection,
+  scrollbar, focus ring, caret) from the palette. A pass applying this
+  already removed every eyebrow label site-wide and the hero's
+  `animate-bounce` scroll cue — don't reintroduce either.
+- `.claude/skills/impeccable/scripts/impeccable detect --json src` runs
+  its deterministic anti-pattern scanner (exit 0 = clean, 2 = findings).
+  Cheap, run it after any visual change. The full `critique`/`audit`
+  commands additionally want dual sub-agent orchestration, live browser
+  injection, and persisted snapshots under `.impeccable/critique/` — real
+  for a multi-surface product, overkill for this one-page site; the
+  detector plus craft-floor is the practical subset actually used here.
+- The PostToolUse/Stop **hook** that runs the detector automatically on
+  every edit (`.claude/settings.json` in the upstream repo) was
+  deliberately **not** installed — writing hook config is gated as
+  self-modification and needs the user's own permission, and the hook's
+  binary resolution needs `impeccable` installed globally (`npm install
+  -g impeccable`) wherever Claude Code actually runs. Ask the user first
+  if this should be turned on.
+
+`emilkowalski/skills` is installed the same way as `leonxlnx/taste-skill`
+(`npx skills@latest add emilkowalski/skills` → `.agents/skills/`,
+symlinked into `.claude/skills/`). Most relevant here: `emil-design-eng`
+(overall polish philosophy), `animate` / `review-animations` /
+`improve-animations` (this project's GSAP work should hold up against
+these), `apple-design` (spring/physical motion, restraint).
+
+**Playwright** (`@playwright/test`) is a real devDependency now, not just
+ad hoc scripts — `playwright.config.ts` + `tests/visual.spec.ts` screenshot
+every section in both themes to `screenshots/` (gitignored). Run with
+`npm run visual`. In this sandbox specifically, Playwright's usual
+per-version browser download is blocked, but a Chromium is pre-installed
+at a fixed path — point at it with
+`PLAYWRIGHT_CHROMIUM_PATH=/opt/pw-browsers/chromium npm run visual`
+(the config reads that env var and no-ops when it's unset, so a normal
+`npx playwright install` + `npm run visual` works unchanged on any other
+machine). Microsoft's own `microsoft/playwright` repo also ships
+`.claude/skills/` — checked, and those are internal skills for
+maintaining Playwright's own codebase (cherry-picking, CI triage, their
+bug database), not usable here; don't install them.
+
 ## Design direction (in flux)
 
 The user rejected the original SVG-illustrated mountain hero as "raw" /

@@ -5,7 +5,7 @@ import { education, experience } from "@/data/profile";
 export function ExperienceSection() {
   return (
     <section id="experience" className="mx-auto max-w-4xl px-6 py-24 sm:py-32">
-      <SectionHeading eyebrow="Experience" title="Where I've worked" />
+      <SectionHeading title="Where I've worked" />
 
       <ol className="space-y-10 border-l border-border pl-8">
         {experience.map((item, i) => (

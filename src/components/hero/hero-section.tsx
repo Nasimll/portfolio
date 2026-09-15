@@ -44,25 +44,19 @@ export function HeroSection() {
         className="relative z-10 flex h-full flex-col justify-center px-6 sm:px-10 lg:px-16"
       >
         <div className="max-w-3xl">
-          <p
-            data-hero-fade
-            className="font-display text-xs tracking-[0.35em] text-white/70 uppercase sm:text-sm"
-          >
-            {profile.location}
-          </p>
           <KineticText
             as="h1"
             text={profile.name}
             trigger="mount"
             delay={0.2}
             stagger={0.1}
-            className="font-display mt-2 w-full text-[clamp(2.75rem,10vw,7.5rem)] leading-[0.95] font-bold tracking-tight text-white [text-wrap:balance] drop-shadow-[0_2px_30px_rgba(0,0,0,0.5)]"
+            className="font-display w-full text-[clamp(2.75rem,10vw,6rem)] leading-[0.95] font-bold tracking-tight text-white [text-wrap:balance] drop-shadow-[0_2px_30px_rgba(0,0,0,0.5)]"
           />
           <p
             data-hero-fade
             className="mt-6 max-w-xl text-base text-white/85 drop-shadow-sm sm:text-lg"
           >
-            {profile.role}
+            {profile.role} · {profile.location}
           </p>
           <p data-hero-fade className="mt-2 max-w-md text-sm text-white/60 sm:text-base">
             {profile.tagline}
@@ -90,7 +84,7 @@ export function HeroSection() {
         aria-label="Scroll to about section"
         className="absolute bottom-8 left-6 z-10 flex items-center gap-2 text-white/70 transition hover:text-white sm:left-10 lg:left-16"
       >
-        <ArrowDown className="h-4 w-4 animate-bounce" />
+        <ArrowDown className="h-4 w-4 animate-float-y" />
         <span className="font-display text-xs tracking-[0.25em] uppercase">Scroll</span>
       </a>
     </section>

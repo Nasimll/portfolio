@@ -19,7 +19,7 @@ export function MarqueeSection() {
                 className="font-display flex items-center gap-10 text-2xl font-semibold tracking-tight text-muted/70 sm:text-4xl"
               >
                 {word}
-                <span className="text-accent">✦</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
               </span>
             ))}
           </div>

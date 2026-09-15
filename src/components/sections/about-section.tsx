@@ -38,7 +38,7 @@ export function AboutSection() {
         </Reveal>
 
         <div>
-          <SectionHeading eyebrow="About" title={about.heading} className="mb-6" />
+          <SectionHeading title={about.heading} className="mb-6" />
           <Reveal className="space-y-5 text-base leading-relaxed text-muted sm:text-lg" delay={0.1}>
             {about.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>

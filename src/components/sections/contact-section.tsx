@@ -7,11 +7,7 @@ import { profile } from "@/data/profile";
 export function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-32">
-      <SectionHeading
-        eyebrow="Contact"
-        title="Let's build something"
-        className="items-center text-center [&>*]:mx-auto"
-      />
+      <SectionHeading title="Let's build something" className="items-center text-center [&>*]:mx-auto" />
       <Reveal delay={0.1}>
         <p className="mx-auto max-w-lg text-base leading-relaxed text-muted sm:text-lg">
           Open to AI engineering, product, and software engineering roles and

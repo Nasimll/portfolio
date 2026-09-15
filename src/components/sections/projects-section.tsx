@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="border-t border-border bg-surface">
       <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-        <SectionHeading eyebrow="Projects" title="Selected work" />
+        <SectionHeading title="Selected work" />
         <div className="grid gap-5 lg:grid-cols-3">
           {projects.map((project, i) => {
             const featured = i === 0;
