@@ -25,8 +25,8 @@ export const about = {
 };
 
 export const stats = [
-  { value: 500, suffix: "+", label: "leads generated" },
-  { value: 40, suffix: "%", label: "traffic & social growth" },
+  { value: 460, suffix: "+", label: "leads generated" },
+  { value: 34, suffix: "%", label: "traffic & social growth" },
   { value: 15, suffix: "", label: "person team led" },
   { value: 3, suffix: "", label: "languages spoken fluently" },
 ];

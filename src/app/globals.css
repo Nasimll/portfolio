@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fb;
-  --foreground: #10131a;
-  --surface: #ffffff;
-  --muted: #5b6472;
-  --border: rgba(16, 19, 26, 0.1);
-  --accent: #059669;
-  --accent-foreground: #ffffff;
+  --background: #f7f4ee;
+  --foreground: #1c1710;
+  --surface: #fffdf9;
+  --muted: #6b6255;
+  --border: rgba(28, 23, 16, 0.12);
+  --accent: #b96a1c;
+  --accent-foreground: #fffaf3;
 
   /* hero scene — day */
   --sky-top: #bfe3ff;
@@ -25,13 +25,13 @@
 }
 
 .dark {
-  --background: #05070d;
-  --foreground: #eef1f7;
-  --surface: #0d1220;
-  --muted: #98a2b5;
-  --border: rgba(238, 241, 247, 0.1);
-  --accent: #34d399;
-  --accent-foreground: #04150e;
+  --background: #14110c;
+  --foreground: #f2ece0;
+  --surface: #1d1912;
+  --muted: #a89b87;
+  --border: rgba(242, 236, 224, 0.12);
+  --accent: #e0a458;
+  --accent-foreground: #1a1206;
 
   /* hero scene — night */
   --sky-top: #04050c;
@@ -137,7 +137,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-foreground);
 }
 
 .film-grain {

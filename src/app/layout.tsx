@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { profile } from "@/data/profile";
 import "./globals.css";
 
-const bodyFont = Inter({
+const bodyFont = Hanken_Grotesk({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
-const displayFont = Space_Grotesk({
+const displayFont = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
 });

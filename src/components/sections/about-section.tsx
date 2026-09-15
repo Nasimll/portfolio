@@ -23,7 +23,7 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-5xl gap-12 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-16">
         <Reveal delay={0} className="flex flex-col items-center gap-4 sm:items-start">
           <div
-            className="flex h-28 w-28 items-center justify-center rounded-full text-2xl font-semibold text-accent-foreground sm:h-32 sm:w-32"
+            className="flex h-28 w-28 items-center justify-center rounded-[2rem] text-2xl font-semibold text-accent-foreground sm:h-32 sm:w-32"
             style={{
               background: "linear-gradient(135deg, var(--accent), var(--accent) 40%, transparent)",
               boxShadow: "0 0 0 1px var(--border), 0 20px 40px -20px var(--accent)",

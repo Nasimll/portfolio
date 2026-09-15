@@ -1,18 +1,20 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { gsap, ScrollTrigger, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 export function Reveal({
   children,
   className,
+  style,
   y = 32,
   delay = 0,
   as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   y?: number;
   delay?: number;
   as?: "div" | "li";
@@ -52,7 +54,7 @@ export function Reveal({
   }, [y, delay]);
 
   return (
-    <Tag ref={ref} className={cn(className)}>
+    <Tag ref={ref} className={cn(className)} style={style}>
       {children}
     </Tag>
   );

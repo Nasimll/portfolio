@@ -50,7 +50,7 @@ export function StatsSection() {
               ref={(el) => {
                 numberRefs.current[i] = el;
               }}
-              className="font-display block text-4xl font-semibold text-accent sm:text-5xl"
+              className="font-display block text-4xl font-semibold tabular-nums text-accent sm:text-5xl"
             >
               0{stat.suffix}
             </span>
